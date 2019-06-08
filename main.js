@@ -31,7 +31,7 @@ class Block {
 class Blockchain {
     constructor() {
         this.chain = [this.createGenesisBlock()]
-        this.difficulty = 2
+        this.difficulty = 6
     }
 
     createGenesisBlock() {
@@ -66,18 +66,11 @@ class Blockchain {
     }
 }
 
-// FIRST VIDEO
-let savjeeCoin = new Blockchain()
-savjeeCoin.addBlock(new Block(1, "10/07/2017", {amount: 4}))
-savjeeCoin.addBlock(new Block(2, "12/07/2017", {amount: 10}))
-// show blockchain
-console.log(JSON.stringify(savjeeCoin, null, 4))
-// chack valid blockchain for validity
-console.log("Is blockchain valid? " + savjeeCoin.isChainValid())
-// tamper with the data
-savjeeCoin.chain[1].data = {amount: 100}
-savjeeCoin.chain[1].hash = savjeeCoin.chain[1].calculateHash
-// check invalid blockchain for validity
-console.log("Is blockchain valid? " + savjeeCoin.isChainValid())
-
 // SECOND VIDEO
+let savjeeCoin = new Blockchain()
+console.log('Mining block 1...')
+savjeeCoin.addBlock(new Block(1, "10/07/2017", {amount: 4}))
+
+console.log('Mining block 2...')
+savjeeCoin.addBlock(new Block(2, "12/07/2017", {amount: 10}))
+
